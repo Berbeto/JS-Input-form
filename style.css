@@ -1,0 +1,240 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: inherit;
+    --main-color: #222831;
+    --second-color: #30475e;
+    --third-color: #c1a57b;
+    --forth-color: #ececec; 
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+html{
+    
+    font-size: 61.5%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: var(--forth-color);
+}
+
+body{
+    background-color: var(--main-color);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;    
+}
+
+.video-container {
+    z-index: -3;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: var(--primary-color) url('./https://traversymedia.com/downloads/cover.jpg') no-repeat center
+		center/cover;
+}
+
+.video-container video {
+	min-width: 100%;
+	min-height: 100%;
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	object-fit: cover;
+}
+
+.video-container:after {
+	content: '';
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	position: absolute;
+}
+
+.main{
+    width: 100%;
+    height: 60%; /* wysokość sekcji głównej do zmian */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.click__on{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+.btn{
+    background-color: #bb3b0e;
+    outline:none;
+    border: none;
+    width: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    color: #d8c593;
+    text-transform: uppercase;
+    top: 50%;
+    transition: transform 400ms ease-out;
+    cursor: pointer;
+    z-index: 30;
+}
+
+.btn-off{
+    z-index:30;
+}
+
+.btn-on{
+    position: absolute;
+    margin: 0 auto;
+    animation: buttonUpAnime 400ms ease-out;
+}
+
+.btn-up{
+    transform: translateY(-250px)
+}
+
+.final{
+    display: none;
+}
+
+.final.visible{
+    display:block;
+    animation: result 300ms ease-out;
+
+}
+
+.result{
+    font-size: 1.6rem;
+    width: 800px;
+    color: #f2a365;
+    display: flex;
+    flex-direction:column;
+    background: linear-gradient(90deg, rgba(0,19,36,0.8) 0%, rgba(0,19,36,0.8) 15%, rgba(48,71,94,0.1) 100%);
+    padding: 3rem;
+    border-radius: 10px;
+}
+
+.inner-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.item{
+    flex:1;
+}
+
+.inner{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.inner-list h3{
+    color: #ececec;
+    font-weight: 900;
+    font-size: 1.8rem;
+}
+
+.result ul {
+    flex: 1;
+    font-size: 1.4rem;
+    color: #ececec;
+}
+
+.result li{
+    flex: 1;
+    list-style: none;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+}
+
+.list input{
+    width: 200px;
+    padding: 20px;
+    margin: 5px 0;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    z-index: 10;
+}
+
+.list__wrap{
+    display: none;
+}
+
+.list__wrap.visible{
+    display: block;
+    animation: inputAppearAnime 300ms ease-out;
+}
+
+.click__off{
+    display: none;
+}
+
+.click__off.visible{
+    display: block;
+    animation: submitAnime 400ms ease-out;
+    z-index:20;
+}
+
+
+@keyframes buttonUpAnime {
+    from{
+    transform: translateY(-15rem);
+    opacity: 0;
+    }
+    to{
+    transform: translateY(0);
+    opacity: 1;
+    }
+}
+
+
+@keyframes inputAppearAnime {
+    from{
+    transform: translateY(15rem);
+    opacity: 0;
+    }
+    to{
+    transform: translateY(0);
+    opacity: 1;
+    }
+}
+
+@keyframes submitAnime {
+    from{
+    transform: translateY(30rem);
+    opacity: 0;
+    }
+    to{
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+@keyframes result{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: .5;
+    }
+}
